@@ -21,6 +21,7 @@ function validarFormulario(e) {
         return;
     }
 
+    paginaActual = 1;
     buscarImagenes();
 }
 
