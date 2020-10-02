@@ -61,12 +61,14 @@ function buscarImagenes() {
     const apiKEY = "18538825-0d5cdd688c52a5593aad45554";
     const URL = `https://pixabay.com/api/?key=${apiKEY}&q=${termino}&per_page=${registrosPagina}&page=${paginaActual}`;
 
-    fetch(URL)
-        .then((response) => response.json())
-        .then((data) => {
-            totalPaginas = calcularPaginas(data.totalHits);
-            mostrarImagenes(data.hits);
-        });
+    try {
+        const response = await fetch(URL);
+        const data = await response.json();
+        totalPaginas = calcularPaginas(data.totalHits);
+        mostrarImagenes(data.hits);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function* crearPaginador(total) {
