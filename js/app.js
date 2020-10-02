@@ -55,7 +55,7 @@ function mostrarAlerta(msj) {
     }
 }
 
-function buscarImagenes() {
+async function buscarImagenes() {
     const termino = document.querySelector("#termino").value;
 
     const apiKEY = "18538825-0d5cdd688c52a5593aad45554";
